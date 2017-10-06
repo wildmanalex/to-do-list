@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <style>
+            .container {
+                width: 22em;
+                height: 27em;
+                margin: 5em auto;
+                background-color: cornsilk;
+                text-align: center;
+            }
+            #todo {
+                border: none;
+                margin-left: auto;
+                margin-top: 2em;
+                height: 2.1em;
+                width: 70%;
+            }
+            #add {
+                border: none;
+                background-color: cornsilk;
+                font-size: 18px;
+            }
+            hr {
+                height: 4px;
+                width: 80%;
+                background-color: black;
+                border:  none;
+                border-radius: 20px;
+            }
+            ul li button{
+                border-radius: 20px;
+                background-color: red;
+            }
+        </style>
+    </head>
+<body>
+    <div class="container">
+        <div class="inner-cont">
+        <input type="text" id="todo" placeholder="Example: Feed the dog">
+        <button id="add">Add</button>
+        <hr/>
+        <ul id="list">
+        </ul>
+        </div>
+    </div>
+
+    
+  <script>
+      //make a circle to click and clear list item
+      //style lists
+      //automatically add the date when user adds item
+      $(function () {
+          $("#add").click(function(){
+              var newLi = document.createElement("LI");
+              var newItem = document.getElementById('todo').value;
+              newLi.innerHTML = newItem;
+              var button = document.createElement('button');
+              button.innerHTML ="Remove";
+              button.setAttribute('id', 'delete');
+              newLi.append(button);
+              $('ul').append(newLi);
+
+              $('#delete').click(function(){
+              $(newLi).remove();
+              $('#button').remove();
+          });
+          });
+      });
+    </script>
+    </body>
+       
+</html>
